@@ -1,6 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
+  basePath: "/next-app", // Your repo name
+  assetPrefix: "/next-app",
   async redirects() {
     return [
       {
@@ -13,14 +18,3 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = nextConfig;
-module.exports = {
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/home",
-        permanent: true,
-      },
-    ];
-  },
-};
