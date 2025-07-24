@@ -55,16 +55,16 @@ const Footer = () => {
               <b>1800 333 539</b>
             </span>
             <span className="flex items-center space-x-1">
-              <a href="">
+              <a href="https://www.instagram.com/feeldx/">
                 <Instagram colorVariant="white" />
               </a>
-              <a href="">
+              <a href="https://www.linkedin.com/company/feeldx/">
                 <Linkedin colorVariant="white" />
               </a>
-              <a href="">
+              <a href="https://www.facebook.com/feeldx">
                 <Facebook colorVariant="white" />
               </a>
-              <a href="">
+              <a href="https://www.youtube.com/channel/UC9kmR0LVnaZahPLxodFdesQ">
                 <Youtube colorVariant="white" />
               </a>
             </span>
