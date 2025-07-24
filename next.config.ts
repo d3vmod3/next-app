@@ -21,6 +21,9 @@ const nextConfig: NextConfig = {
 
 module.exports = nextConfig;
 module.exports = {
+  images: {
+    domains: ["source.unsplash.com", "logo.clearbit.com", "robohash.org"],
+  },
   async redirects() {
     return [
       {

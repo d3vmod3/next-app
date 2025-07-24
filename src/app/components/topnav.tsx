@@ -2,9 +2,7 @@ const TopNav = () => {
   return (
     <div className="navbar bg-neutral hidden lg:block">
       <div className="container mx-auto flex">
-        <div className="navbar-start"></div>
-        <div className="navbar-center"></div>
-        <div className="navbar-end hidden lg:flex">
+        <div className="navbar-start hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-1">
             <li>
               <details className="dropdown">
@@ -17,7 +15,7 @@ const TopNav = () => {
                     <a>Capability Statement</a>
                   </li>
                   <li>
-                    <a>Aec</a>
+                    <a>Architechture, Engineering & Construction</a>
                   </li>
                 </ul>
               </details>
@@ -29,6 +27,14 @@ const TopNav = () => {
               <a>1800 333 539</a>
             </li>
           </ul>
+        </div>
+        <div className="navbar-center"></div>
+        <div className="navbar-end">
+          <input
+            type="text"
+            placeholder="Search services, projects, or insights..."
+            className="input input-bordered focus:outline-none focus:ring-0"
+          />
         </div>
       </div>
     </div>

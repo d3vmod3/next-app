@@ -1,6 +1,42 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Why = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      if (sectionRef.current) {
+        gsap.fromTo(
+          sectionRef.current,
+          { autoAlpha: 0, y: 40 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
+
+    return () => mm.revert();
+  }, []);
+
   return (
-    <section id="why" className="py-20 bg-secondary">
+    <section id="why" className="py-20 bg-secondary" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-4">
         <h3 className="text-3xl font-semibold mb-6 text-center text-primary">
           Why Choose FeelDX

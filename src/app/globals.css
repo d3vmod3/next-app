@@ -9,7 +9,9 @@
   --color-accent: #2e3a59;
   --color-neutral: #f5f6f8;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .btn-no-bg-hover {
   @apply bg-none text-white hover:bg-transparent border-none transition-colors duration-300;
 }

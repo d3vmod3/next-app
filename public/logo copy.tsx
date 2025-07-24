@@ -2,14 +2,15 @@ type Props = {
   colorVariant?: string;
 };
 
-export default function Logo({ colorVariant = "black" }: Props) {
+export default function Logo({ colorVariant = "#101010" }: Props) {
   return (
     <svg
       width="164"
       height="42"
       viewBox="0 0 164 42"
+      fill={colorVariant}
       xmlns="http://www.w3.org/2000/svg"
-      className={`fill-current text-${colorVariant} hover:text-primary transition-colors duration-300`}
+      className="fill-current text-black hover:text-primary transition-colors duration-300"
     >
       <path d="M26.168 42H47.3525V37.0649H31.1528V25.9612H47.3525V21.0261H31.1528V9.92186H47.3525V4.98732H26.168V42Z"></path>
       <path d="M0 42H4.9848V25.9612H21.1834V21.0261H4.9848V9.92186H21.1834V4.98732H0V42Z"></path>
