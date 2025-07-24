@@ -80,7 +80,13 @@ const Nav = () => {
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+
+              <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 space-y-1">
+                <li className="mb-4">
+                  <a className="btn btn-ghost btn-no-bg-hover">
+                    <Logo />
+                  </a>
+                </li>
                 <li>
                   <a href="#why">Why FEELDX</a>
                 </li>
@@ -92,6 +98,45 @@ const Nav = () => {
                 </li>
                 <li>
                   <a href="#testimonials">Testimonials</a>
+                </li>
+                <hr className="my-6 border-t border-gray-300" />
+                <li>
+                  <details className="dropdown">
+                    <summary className="">About Us</summary>
+                    <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                      <li>
+                        <a>Who we are</a>
+                      </li>
+                      <li>
+                        <a>Capability Statement</a>
+                      </li>
+                      <li>
+                        <a>Architechture, Engineering & Construction</a>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+                <li>
+                  <a>News</a>
+                </li>
+                <li className="flex">
+                  <a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                      />
+                    </svg>
+                    1800 333 539
+                  </a>
                 </li>
               </ul>
             </div>
