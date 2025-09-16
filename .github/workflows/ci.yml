@@ -44,11 +44,11 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      - name: Start Next.js server
-        run: npm start &
-
       - name: Wait for app
         run: npx wait-on http://localhost:3000
+
+      - name: Start Next.js server
+        run: npm start &
 
       - name: Run Cypress tests
         run: npm run cypress:run
