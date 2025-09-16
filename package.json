@@ -32,7 +32,8 @@
     "eslint-config-next": "15.3.5",
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^8.0.5"
   },
   "homepage": "https://d3vmod3.github.io/next-app"
 }
