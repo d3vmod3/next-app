@@ -51,7 +51,7 @@ jobs:
         run: npx wait-on http://localhost:3000
 
       - name: Run Cypress tests
-        run: npm run test:e2e
+        run: npm run cypress:run
 
   deploy:
     needs: [build, test] # 🚀 deploy only runs if build + test succeed
