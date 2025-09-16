@@ -9,7 +9,7 @@
     "lint": "next lint",
     "deploy": "next build && gh-pages -d out",
     "cypress:open": "cypress open",
-    "test:e2e": "cypress run"
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "clsx": "^2.1.1",
