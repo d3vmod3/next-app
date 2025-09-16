@@ -26,7 +26,7 @@ const Hero = () => {
     <div className="bg-neutral py-20 text-center">
       <div className="mx-auto px-4">
         <h2 ref={headingRef} className="text-4xl font-bold mb-4 text-primary">
-          We Design Experiences that Connect
+          We Design Experiences that Connects
         </h2>
         <p className="text-lg text-accent mb-8">
           Empowering brands through seamless digital solutions.
