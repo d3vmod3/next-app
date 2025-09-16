@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && next export",
+    "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "deploy": "next build && gh-pages -d out",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "test:e2e": "cypress run"
   },
   "dependencies": {
     "clsx": "^2.1.1",
