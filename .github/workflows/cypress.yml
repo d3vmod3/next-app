@@ -1,4 +1,4 @@
-name: Cypress E2E Tests
+name: CI/CD with Cypress
 
 on:
   push:
@@ -7,21 +7,35 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18]
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js app
+        run: npm run build
+
+  test:
+    needs: build # ✅ run Cypress only after build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
           cache: "npm"
 
       - name: Install dependencies
@@ -33,8 +47,35 @@ jobs:
       - name: Start Next.js server
         run: npm start &
 
-      - name: Wait for app to be ready
+      - name: Wait for app
         run: npx wait-on http://localhost:3000
 
       - name: Run Cypress tests
         run: npm run test:e2e
+
+  deploy:
+    needs: [build, test] # 🚀 deploy only runs if build + test succeed
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out # if using next export (adjust if different)
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
