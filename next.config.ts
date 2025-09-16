@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export", // 👈 this replaces next export
+
+  images: {
+    unoptimized: true, // needed if using next/image with static export
+    domains: ["source.unsplash.com", "logo.clearbit.com", "robohash.org"],
+  },
+
   async redirects() {
     return [
       {
@@ -10,6 +17,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -19,18 +27,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-module.exports = nextConfig;
-module.exports = {
-  images: {
-    domains: ["source.unsplash.com", "logo.clearbit.com", "robohash.org"],
-  },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/home",
-        permanent: true,
-      },
-    ];
-  },
-};
+export default nextConfig;
