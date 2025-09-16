@@ -53,7 +53,7 @@ jobs:
       - name: Run Cypress tests
         run: npm run cypress:run
 
-deploy:
+  deploy:
   needs: [build, test]
   runs-on: ubuntu-latest
   steps:
