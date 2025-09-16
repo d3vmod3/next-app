@@ -54,28 +54,28 @@ jobs:
         run: npm run cypress:run
 
   deploy:
-  needs: [build, test]
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: "npm"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Build Next.js app
-      run: npm run build
+      - name: Build Next.js app
+        run: npm run build
 
-    - name: Deploy to Vercel
-      uses: amondnet/vercel-action@v25
-      with:
-        vercel-token: ${{ secrets.f20tR6UOudrg1PpRQPa5ZcRu }} # 🔑 create this in GitHub Secrets
-        vercel-org-id: ${{ secrets.50iXcy8traPTA8ky8qG9ImNi }} # 🔑 from Vercel settings
-        vercel-project-id: ${{ secrets.prj_c6VsdwYDusU2suzGdcmHMarVNBjt }} # 🔑 from Vercel settings
-        working-directory: ./
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.f20tR6UOudrg1PpRQPa5ZcRu }} # 🔑 create this in GitHub Secrets
+          vercel-org-id: ${{ secrets.50iXcy8traPTA8ky8qG9ImNi }} # 🔑 from Vercel settings
+          vercel-project-id: ${{ secrets.prj_c6VsdwYDusU2suzGdcmHMarVNBjt }} # 🔑 from Vercel settings
+          working-directory: ./
